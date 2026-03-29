@@ -1,7 +1,7 @@
 ---
 title: "Assignment 6 Report"
-author: "Taylor Falk"
-date: "1/24/2022"
+author: "Shreya Das"
+date: "3/27/2026"
 output: html_document
 ---
 
@@ -156,5 +156,9 @@ x <- list(EdgeR = row.names(edger_res),
 
 ggVennDiagram(x) +
   ggtitle("Top 1000 genes from FOUR diff. exp. R packages")
+```
+
+```{r}
+testthat::test_file("test_main.R")
 ```
 
