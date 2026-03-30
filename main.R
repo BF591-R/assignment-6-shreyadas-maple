@@ -64,6 +64,7 @@ load_n_trim <- function(filename) {
 #'
 #' @examples run_deseq(counts_df, coldata, 10, "condition_day4_vs_day7")
 run_deseq <- function(count_dataframe, coldata, count_filter, condition_name) {
+  
   count_matrix <- as.matrix(count_dataframe)
   count_matrix <- count_matrix[, rownames(coldata)]
   
@@ -75,12 +76,13 @@ run_deseq <- function(count_dataframe, coldata, count_filter, condition_name) {
   dds <- dds[keep,]
   dds <- DESeq(dds)
   
-  res <- as.data.frame(results(dds, name = condition_name))  # <- removed as.data.frame()
+  res <- results(dds, name = condition_name)  # <- removed as.data.frame()
   
   cat("log2 fold change (MLE): ", condition_name, "\n")
   cat("Wald test p-value: ", condition_name, "\n")
   cat("Dataframe with 6 rows and 6 columns \n")
   return(res)
+  
 }
 
 #### edgeR ####
